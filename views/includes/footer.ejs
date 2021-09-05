@@ -5,7 +5,8 @@
     <script src="https://zingme.herokuapp.com/socket.io/socket.io.js"></script>
     <script>
       $(document).ready(function(){
-        var socket = io("http://localhost:9999");
+        // var socket = io("http://localhost:9999");
+        var socket = io("https://zingme.herokuapp.com/");
         $(".like-post").click(function(){
             // socket.emit("cl-like-post", "like");
         });
