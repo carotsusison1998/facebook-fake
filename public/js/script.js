@@ -1,4 +1,5 @@
-var socket = io("http://localhost:9999");
+// var socket = io("http://localhost:9999");
+var socket = io("https://zingme.herokuapp.com/");
 
 // Accordion
 function myFunction(id) {
