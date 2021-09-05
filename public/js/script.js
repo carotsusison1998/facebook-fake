@@ -124,7 +124,8 @@ async function renderMessage(person_send_id, person_recieve_id){
 async function callContentMessage(person_send_id, person_recieve_id){
 	let result = [];
 	await $.ajax({
-        url: 'http://localhost:9999/api/get-message-all',
+        // url: 'http://localhost:9999/api/get-message-all',https://zingme.herokuapp.com/
+        url: 'https://zingme.herokuapp.com/api/get-message-all',
 		type: "POST",
 		data: {
 			person_send_id: person_send_id,
