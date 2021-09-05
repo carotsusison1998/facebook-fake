@@ -1,0 +1,142 @@
+/* General CSS */
+body {
+  background-color: #fff;
+  color: #001;
+}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Open Sans", sans-serif;
+}
+a:hover, i:hover{
+    opacity: 0.7;
+}
+/* Body content Home page */
+#body-content{
+    position: relative;
+}
+/* List account status */
+.parent-ic{
+    display: flex;
+    justify-content: center;
+    padding: 6px 8px;
+    margin-bottom: 0;
+}
+.parent-ic .ic-status{
+    width: 14px;
+    height: 14px;
+    border-radius: 90%;
+    display: block;
+}
+.parent-ic .ic-status.ic-online{
+    border: 1px solid rgb(4, 247, 65);
+    background-color: rgb(4, 247, 65);
+}
+.parent-ic .ic-status.ic-offline{
+    border: 1px solid rgb(255, 0, 0);
+    background-color: rgb(255, 0, 0);
+}
+.list-account img.avatar{
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+/* Form Chat */
+.list-form-chat{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 10;
+}
+.list-form-chat .form-chat{
+    width: 300px;
+    height: 400px;
+    background-color: #607d8b;
+    margin-right: 10px;
+    display: block;
+}
+.form-chat{
+    position: relative;
+}
+.form-chat img.avatar{
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+}
+.form-chat .form-chat-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+}
+.form-chat .form-chat-header div:first-child img{
+    margin-right: 10px;
+    cursor: pointer;
+}
+.form-chat .form-chat-header div:last-child .fa.fa-close{
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 6px;
+}
+.form-chat .form-chat-footer{
+    display: flex;
+    height: 34px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.form-chat .form-chat-footer textarea{
+    width: 100%;
+    resize: none;
+    padding: 2px 4px;
+}
+.form-chat .form-chat-content{
+    width: 100%;
+    height: calc(100%-34px);
+    position: absolute;
+    background-color: #e8e8e8;
+    display: block;
+    top: 61px;
+    bottom: 34px;
+    padding: 10px 10px 0;
+    overflow-y: auto;
+}
+.form-chat .form-chat-content p.message{
+    text-align: left;
+    display: flex;
+}
+.form-chat .form-chat-content p.message span{
+    background-color: #e6d9d9;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+.form-chat .form-chat-content p.message-send{
+    justify-content: flex-end;
+    padding-left: 20%;
+}
+.form-chat .form-chat-content p.message-receive{
+    justify-content: flex-start;
+    padding-right: 20%;
+}
+.form-chat .form-chat-content .message-receive.input-text{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.button-mess{
+    position: relative;
+}
+.button-mess p{
+    position: absolute;
+    top: 0;
+    left: 2px;
+    font-size: 10px;
+    color: red;
+}

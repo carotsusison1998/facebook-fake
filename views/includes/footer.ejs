@@ -1,0 +1,53 @@
+    <footer>this is footer</footer>
+</body>
+    <script src="../js/jquery.js"></script>
+    <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+      $(document).ready(function(){
+        var socket = io("http://localhost:9999");
+        $(".like-post").click(function(){
+            // socket.emit("cl-like-post", "like");
+        });
+        socket.on("sv-like-post", function(data){
+            $("#content-like-post").html(data);
+        });
+        socket.on("sv-disconnect", function(data){
+            $("#content-like-post").html(data);
+        });
+
+        socket.on("sv-message-logout", function(data){
+          $("#"+data+" p.parent-ic span").removeClass("ic-online").addClass("ic-offline");
+        });
+        // server send message for all account
+        socket.on("sv-send-message", function(data){
+          if($("#person_send_id").val() == data.personSendId){
+            var formShow = ".form-chat-"+data.personRecieveId+".chat-"+data.personSendId+" .form-chat-content"
+            var htmlRender = "<p class='message message-send'><span>"+data.message+"</span></p>"
+            
+          }else{
+            var formShow = ".form-chat-"+data.personSendId+".chat-"+data.personRecieveId+" .form-chat-content"
+            var htmlRender = "<p class='message message-receive'><span>"+data.message+"</span></p>"
+            console.log("#"+data.personSendId+" .button-mess p");
+            $("#"+data.personSendId+" .button-mess p").remove();
+            $("#"+data.personSendId+" .button-mess").append("<p>new</p>");
+          }
+          $(formShow).append(htmlRender);
+          $(".form-chat-content").animate({ scrollTop: $('.form-chat-content').prop("scrollHeight")}, 1000);
+        });
+
+        socket.on("sv-send-keyup", function(data){
+          if($("#person_send_id").val() != data.personSendId){
+            var formShow = ".chat-"+data.personRecieveId+" .form-chat-content"
+            var htmlRender = "<p class='message message-receive input-text'>đang soạn tin</p>"
+            // $(formShow).append(htmlRender);
+          }
+        });
+
+        $("#logout").click(function(e){
+          socket.emit("cl-logout", $("#account_id").val());
+        })
+      });
+    </script>
+    <script src="../js/script.js"></script>
+</html>
