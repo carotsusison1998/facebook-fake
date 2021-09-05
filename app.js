@@ -149,7 +149,8 @@ app.use((err, req, res, next) => {
 });
 
 // start server
-const port = app.get("port") || 9999;
+// const port = app.get("port") || 9999;
+const port = process.env.PORT || 9999;
 server.listen(port, () => {
     console.log(`server is listening on port ${port}`);
 });
