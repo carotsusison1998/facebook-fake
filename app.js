@@ -57,8 +57,8 @@ io.on("connection", (socket) => {
     });
     socket.on("cl-send-message", async function(data){
         io.sockets.emit("sv-send-message", data);
-        // const message_all = new MessageAll(data);
-        // await message_all.save();
+        const message_all = new MessageAll(data);
+        await message_all.save();
     });
 
     socket.on("cl-send-keyup", async function(data){
