@@ -140,3 +140,7 @@ a:hover, i:hover{
     font-size: 10px;
     color: red;
 }
+.lb-prev,
+.lb-next{
+    display: none !important;
+}

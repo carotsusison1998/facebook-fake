@@ -120,7 +120,9 @@
 					<div class="w3-row-padding" style="margin:0 -16px">
 						<% item.postList.forEach((item_img)=>{ %>
 						<div class="w3-half">
-							<img src="<%= item_img.url %>" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
+							<a href="<%= item_img.url %>" data-lightbox="image-1-%= item.postUser[0].name %>" data-title="">
+								<img src="<%= item_img.url %>" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
+							</a>
 						</div>
 						<% }) %>
 					</div>

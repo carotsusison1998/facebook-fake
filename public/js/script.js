@@ -1,5 +1,12 @@
-// var socket = io("http://localhost:9999");
-var socket = io("https://zingme.herokuapp.com/");
+var socket = "";
+var api_get_message = "";
+if(document.domain === "localhost"){
+	socket = io("http://localhost:9999");
+	api_get_message = "http://localhost:9999/api/get-message-all";
+}else{
+	socket = io("https://zingme.herokuapp.com/");
+	api_get_message = "https://zingme.herokuapp.com/api/get-message-all";
+}
 
 // Accordion
 function myFunction(id) {
@@ -124,8 +131,7 @@ async function renderMessage(person_send_id, person_recieve_id){
 async function callContentMessage(person_send_id, person_recieve_id){
 	let result = [];
 	await $.ajax({
-        // url: 'http://localhost:9999/api/get-message-all',https://zingme.herokuapp.com/
-        url: 'https://zingme.herokuapp.com/api/get-message-all',
+        url: api_get_message,
 		type: "POST",
 		data: {
 			person_send_id: person_send_id,
